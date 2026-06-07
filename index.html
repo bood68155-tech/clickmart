@@ -772,17 +772,3 @@ const handleAddProduct = (e) => {
   setProductsList([...productsList, productWithId]);
   setNewProduct({ name: '', price: '', image: '', desc: '' });
 };
-
-/* وفي قسم الـ return، أضف هذا النموذج فوق قسم المنتجات (الـ Grid) */
-
-<section style={{ padding: "2rem", background: "#0b1120", border: "1px solid #3b82f6", borderRadius: "20px", marginBottom: "40px" }}>
-  <h3 style={{ marginBottom: "20px" }}>إضافة منتج جديد للسوق</h3>
-  <form onSubmit={handleAddProduct} style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-    <input placeholder="اسم المنتج" value={newProduct.name} onChange={e => setNewProduct({...newProduct, name: e.target.value})} style={{ padding: "10px", borderRadius: "8px", color: "black" }} />
-    <input placeholder="السعر (مثال: $50)" value={newProduct.price} onChange={e => setNewProduct({...newProduct, price: e.target.value})} style={{ padding: "10px", borderRadius: "8px", color: "black" }} />
-    <input placeholder="رابط الصورة" value={newProduct.image} onChange={e => setNewProduct({...newProduct, image: e.target.value})} style={{ padding: "10px", borderRadius: "8px", color: "black" }} />
-    <button type="submit" style={{ padding: "10px 20px", background: "#3b82f6", borderRadius: "8px", color: "white", cursor: "pointer" }}>إضافة للسوق</button>
-  </form>
-</section>
-</body>
-</html>
