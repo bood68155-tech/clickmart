@@ -1,19 +1,64 @@
-<!-- في قسم الـ CSS أضف هذا -->
-<style>
-  #admin-panel { display: none; padding: 2rem; background: var(--bg2); border: 1px solid var(--blue); border-radius: 20px; margin-bottom: 40px; }
-</style>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white font-[Cairo]">
+  <div id="root"></div>
 
-<!-- في قسم الـ HTML، ضع هذا كود القسم (النموذج) -->
-<div id="admin-panel">
-  <h3>لوحة تحكم صاحب المتجر</h3>
-  <form id="add-product-form" class="admin-form">
-    <!-- نفس حقول الإدخال -->
-    <input type="text" id="p-name" placeholder="اسم المنتج" class="admin-input" required />
-    <input type="text" id="p-price" placeholder="السعر" class="admin-input" required />
-    <input type="text" id="p-img" placeholder="رابط الصورة" class="admin-input" required />
-    <button type="submit" class="admin-btn">عرض على المتجر</button>
-  </form>
-</div>
+  <script type="text/babel">
+    const { useState } = React;
 
-<!-- رابط مخفي في الفوتر لإظهار اللوحة -->
-<a href="#" onclick="document.getElementById('admin-panel').style.display='block'; return false;" style="color: transparent;">.</a>
+    function App() {
+      const [products, setProducts] = useState([
+        { id: 1, name: "سماعات سوني", price: "$349", image: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400" },
+        { id: 2, name: "ساعة أبل ألترا 2", price: "$799", image: "https://images.unsplash.com/photo-1695123985040-e4b2d56c4d7e?w=400" }
+      ]);
+      const [isAdmin, setIsAdmin] = useState(false);
+      const [newP, setNewP] = useState({ name: '', price: '', image: '' });
+
+      const addProduct = (e) => {
+        e.preventDefault();
+        setProducts([...products, { ...newP, id: Date.now() }]);
+        setNewP({ name: '', price: '', image: '' });
+      };
+
+      return (
+        <div className="p-4">
+          <header className="flex justify-between items-center mb-10 border-b border-gray-700 pb-4">
+            <h1 className="text-3xl font-bold text-blue-500">ClickMart</h1>
+            <button onClick={() => setIsAdmin(!isAdmin)} className="text-gray-500 text-xs">إعدادات</button>
+          </header>
+
+          {isAdmin && (
+            <div className="bg-gray-800 p-6 rounded-xl mb-10 border border-blue-500">
+              <h2 className="text-xl mb-4">لوحة تحكم المدير</h2>
+              <form onSubmit={addProduct} className="flex flex-col gap-3">
+                <input placeholder="اسم المنتج" className="p-2 rounded bg-gray-700" value={newP.name} onChange={e=>setNewP({...newP, name:e.target.value})} />
+                <input placeholder="السعر" className="p-2 rounded bg-gray-700" value={newP.price} onChange={e=>setNewP({...newP, price:e.target.value})} />
+                <input placeholder="رابط الصورة" className="p-2 rounded bg-gray-700" value={newP.image} onChange={e=>setNewP({...newP, image:e.target.value})} />
+                <button className="bg-blue-600 p-2 rounded">عرض على المتجر</button>
+              </form>
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {products.map(p => (
+              <div key={p.id} className="bg-gray-800 p-4 rounded-xl border border-gray-700">
+                <img src={p.image} className="w-full h-48 object-cover rounded-lg mb-4" />
+                <h3 className="text-lg font-bold">{p.name}</h3>
+                <p className="text-blue-400 font-bold">{p.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
