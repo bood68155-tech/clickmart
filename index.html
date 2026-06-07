@@ -1,87 +1,19 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClickMart – تقنية المستقبل بين يديك</title>
-  <meta name="description" content="وجهتك الأولى للمنتجات التقنية والإلكترونيات في فلسطين." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #0b1120; --bg2: #0d1526; --bg3: #111d35; --blue: #3b82f6; --blue-d: #1d4ed8; --blue-l: #60a5fa; --blue-xl: #93c5fd; --slate: #94a3b8; --slate-d: #64748b; --slate-dd: #475569; --white: #ffffff; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; min-height: 100vh; }
-    a { text-decoration: none; }
-    /* ... (تم الحفاظ على باقي التنسيقات الأصلية) ... */
-    /* إضافة تنسيق النموذج */
-    .admin-panel { padding: 2rem; background: var(--bg2); border: 1px solid var(--blue); border-radius: 20px; margin-bottom: 40px; }
-    .admin-form { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-    .admin-input { padding: 12px; border-radius: 8px; border: 1px solid var(--slate-dd); background: var(--bg); color: white; flex: 1; min-width: 200px; }
-    .admin-btn { padding: 12px 25px; background: var(--blue); border: none; border-radius: 8px; color: white; cursor: pointer; font-weight: 700; }
-  </style>
-</head>
-<body>
+<!-- في قسم الـ CSS أضف هذا -->
+<style>
+  #admin-panel { display: none; padding: 2rem; background: var(--bg2); border: 1px solid var(--blue); border-radius: 20px; margin-bottom: 40px; }
+</style>
 
-  <!-- (نفس الهيدر والـ Hero المعتاد) -->
-  <header id="header"><div class="header-inner"><div class="logo"><div class="logo-icon">C</div><span class="logo-text">Click<span>Mart</span></span></div><nav><a href="#" class="nav-link">الرئيسية</a><a href="#products" class="nav-link">المنتجات</a></nav><button id="cart-btn">🛒 السلة <span id="cart-count">0</span></button></div></header>
+<!-- في قسم الـ HTML، ضع هذا كود القسم (النموذج) -->
+<div id="admin-panel">
+  <h3>لوحة تحكم صاحب المتجر</h3>
+  <form id="add-product-form" class="admin-form">
+    <!-- نفس حقول الإدخال -->
+    <input type="text" id="p-name" placeholder="اسم المنتج" class="admin-input" required />
+    <input type="text" id="p-price" placeholder="السعر" class="admin-input" required />
+    <input type="text" id="p-img" placeholder="رابط الصورة" class="admin-input" required />
+    <button type="submit" class="admin-btn">عرض على المتجر</button>
+  </form>
+</div>
 
-  <section id="products">
-    <div class="section-inner">
-      
-      <!-- نموذج إضافة المنتج -->
-      <div class="admin-panel">
-        <h3>إضافة منتج جديد للسوق</h3>
-        <form id="add-product-form" class="admin-form">
-          <input type="text" id="p-name" placeholder="اسم المنتج" class="admin-input" required />
-          <input type="text" id="p-price" placeholder="السعر" class="admin-input" required />
-          <input type="text" id="p-img" placeholder="رابط الصورة" class="admin-input" required />
-          <button type="submit" class="admin-btn">إضافة للسوق</button>
-        </form>
-      </div>
-
-      <div class="section-head"><h2>منتجاتنا المميزة</h2></div>
-      <div class="product-grid" id="product-grid"></div>
-    </div>
-  </section>
-
-  <script>
-    var products = [ /* ... (بياناتك الأصلية) ... */ ];
-    var cart = [];
-
-    function renderProducts() {
-      var grid = document.getElementById('product-grid');
-      grid.innerHTML = products.map(function(p) {
-        return (
-          '<div class="product-card">' +
-            '<div class="card-img-wrap"><img class="card-img" src="' + p.image + '" /></div>' +
-            '<div class="card-body">' +
-              '<div class="card-name">' + p.name + '</div>' +
-              '<div class="card-price">' + p.price + '</div>' +
-              '<button class="add-btn" onclick="alert(\'تمت الإضافة!\')">🛒 أضف للسلة</button>' +
-            '</div>' +
-          '</div>'
-        );
-      }).join('');
-    }
-
-    // منطق إضافة المنتج
-    document.getElementById('add-product-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var newProduct = {
-        id: products.length + 1,
-        name: document.getElementById('p-name').value,
-        price: document.getElementById('p-price').value,
-        image: document.getElementById('p-img').value,
-        tag: "جديد"
-      };
-      products.push(newProduct);
-      renderProducts();
-      e.target.reset();
-    });
-
-    renderProducts();
-  </script>
-</body>
-</html>
+<!-- رابط مخفي في الفوتر لإظهار اللوحة -->
+<a href="#" onclick="document.getElementById('admin-panel').style.display='block'; return false;" style="color: transparent;">.</a>
