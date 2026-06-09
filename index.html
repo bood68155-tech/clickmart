@@ -24,8 +24,6 @@
     <!-- Pricing Cards Section -->
     <section class="max-w-7xl mx-auto px-6 mb-20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Card 1 -->
             <div class="card-hover bg-[#111] p-8 rounded-3xl border border-gray-800">
                 <h3 class="text-2xl font-bold mb-4">صفحة هبوط</h3>
                 <div class="text-5xl font-black text-orange-500 mb-6">$50</div>
@@ -37,7 +35,6 @@
                 <button onclick="openModal('صفحة هبوط')" class="w-full bg-orange-600 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 transition">طلب الخدمة</button>
             </div>
 
-            <!-- Card 2 (Featured) -->
             <div class="card-hover bg-orange-600 p-8 rounded-3xl border border-orange-500 shadow-2xl shadow-orange-500/20">
                 <span class="bg-black text-orange-500 px-3 py-1 rounded-full text-xs font-bold uppercase">الأكثر طلباً</span>
                 <h3 class="text-2xl font-bold mt-4 mb-4">متجر إلكتروني</h3>
@@ -50,7 +47,6 @@
                 <button onclick="openModal('متجر إلكتروني')" class="w-full bg-black text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-900 transition">طلب الخدمة</button>
             </div>
 
-            <!-- Card 3 -->
             <div class="card-hover bg-[#111] p-8 rounded-3xl border border-gray-800">
                 <h3 class="text-2xl font-bold mb-4">برمجة خاصة</h3>
                 <div class="text-5xl font-black text-orange-500 mb-6">$300+</div>
@@ -84,7 +80,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="bg-[#111] p-8 rounded-3xl border border-gray-800">
                 <h4 class="font-bold text-xl mb-6">آلية العمل معنا:</h4>
                 <ol class="text-gray-400 space-y-4 list-decimal list-inside font-medium text-sm">
@@ -104,11 +99,19 @@
             <p class="text-gray-400 mb-8 leading-relaxed">
                 في <strong>كليك مارت</strong>، نحن لا نبيع مجرد أكواد أو تصميمات، بل نضع بين يديك أدوات نمو حقيقية لمشروعك. 
                 انضم إلى قائمة عملائنا المميزين اليوم، ودعنا نحول رؤيتك إلى واقع يسبق منافسيك بمراحل. 
-                استثمر في جودة تستحقها، واحصل على خدمة تضعك في القمة.
             </p>
-            <a href="https://wa.me/970599608181" class="inline-block bg-white text-black px-10 py-3 rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all">
-                ابدأ مشروعك الآن
-            </a>
+            
+            <div class="relative inline-block">
+                <button onclick="toggleOptions()" class="bg-white text-black px-10 py-3 rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all">
+                    ابدأ مشروعك الآن
+                </button>
+                <div id="optionsMenu" class="hidden absolute bottom-full mb-4 w-64 bg-[#111] border border-gray-700 rounded-2xl shadow-xl p-2 z-10">
+                    <button onclick="startProject('متجر إلكتروني')" class="block w-full text-right p-3 hover:bg-orange-600 rounded-lg transition">🚀 إنشاء متجر إلكتروني</button>
+                    <button onclick="startProject('تصميم موقع')" class="block w-full text-right p-3 hover:bg-orange-600 rounded-lg transition">💻 تصميم موقع تعريفي</button>
+                    <button onclick="startProject('برمجة خاصة')" class="block w-full text-right p-3 hover:bg-orange-600 rounded-lg transition">⚙️ برمجة تطبيق خاص</button>
+                </div>
+            </div>
+
             <div class="mt-12 text-gray-600 text-sm">
                 جميع الحقوق محفوظة © 2026 ClickMart | فريقك التقني الموثوق
             </div>
@@ -129,10 +132,16 @@
         function openModal(s) {
             document.getElementById('modalTitle').innerText = 'تم اختيار: ' + s;
             document.getElementById('modalMessage').innerHTML = 'شكراً لثقتك بـ <strong>كليك مارت</strong>.<br><br>يرجى التواصل معنا عبر واتساب الآن لتزويدنا بتفاصيل مشروعك وبدء العمل فوراً!';
-            document.getElementById('waButton').href = 'https://wa.me/970599608181?text=مرحباً، أريد طلب خدمة ' + s + '. هذه تفاصيل مشروعي:';
+            document.getElementById('waButton').href = 'https://wa.me/970599608181?text=مرحباً، أريد طلب خدمة ' + s + '. أحتاج تفاصيل أكثر ونريد أن نكون معاً للنهاية!';
             document.getElementById('modal').classList.remove('hidden');
         }
         function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+        function toggleOptions() { document.getElementById('optionsMenu').classList.toggle('hidden'); }
+        function startProject(type) {
+            const message = 'مرحباً، أريد البدء بمشروع ' + type + '. أحتاج تفاصيل أكثر ونريد أن نكون معاً للنهاية!';
+            window.open('https://wa.me/970599608181?text=' + encodeURIComponent(message), '_blank');
+            toggleOptions();
+        }
     </script>
 </body>
 </html>
