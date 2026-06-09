@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كليك مارت (ClickMart) | خدمات تصميم المواقع</title>
+    <title>كليك مارت (ClickMart) | شريكك الرقمي</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
@@ -15,14 +15,17 @@
 </head>
 <body>
 
+    <!-- Header Section -->
     <header class="py-16 text-center px-6">
         <h1 class="text-5xl md:text-6xl font-black mb-4 gradient-text">كليك مارت (ClickMart)</h1>
         <p class="text-gray-400 text-lg">شريكك الرقمي لبناء مستقبل مشروعك، نحول أفكارك إلى واقع ملموس.</p>
     </header>
 
+    <!-- Pricing Cards Section -->
     <section class="max-w-7xl mx-auto px-6 mb-20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
+            <!-- Card 1 -->
             <div class="card-hover bg-[#111] p-8 rounded-3xl border border-gray-800">
                 <h3 class="text-2xl font-bold mb-4">صفحة هبوط</h3>
                 <div class="text-5xl font-black text-orange-500 mb-6">$50</div>
@@ -34,6 +37,7 @@
                 <button onclick="openModal('صفحة هبوط')" class="w-full bg-orange-600 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 transition">طلب الخدمة</button>
             </div>
 
+            <!-- Card 2 (Featured) -->
             <div class="card-hover bg-orange-600 p-8 rounded-3xl border border-orange-500 shadow-2xl shadow-orange-500/20">
                 <span class="bg-black text-orange-500 px-3 py-1 rounded-full text-xs font-bold uppercase">الأكثر طلباً</span>
                 <h3 class="text-2xl font-bold mt-4 mb-4">متجر إلكتروني</h3>
@@ -46,6 +50,7 @@
                 <button onclick="openModal('متجر إلكتروني')" class="w-full bg-black text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-900 transition">طلب الخدمة</button>
             </div>
 
+            <!-- Card 3 -->
             <div class="card-hover bg-[#111] p-8 rounded-3xl border border-gray-800">
                 <h3 class="text-2xl font-bold mb-4">برمجة خاصة</h3>
                 <div class="text-5xl font-black text-orange-500 mb-6">$300+</div>
@@ -59,6 +64,7 @@
         </div>
     </section>
 
+    <!-- Why Us & Process Section -->
     <section class="max-w-7xl mx-auto px-6 py-12 border-t border-gray-900">
         <h2 class="text-3xl font-bold text-center mb-12">لماذا كليك مارت؟</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -91,6 +97,25 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
+    <footer class="mt-20 py-16 border-t border-gray-900 bg-[#0f0f0f] text-center px-6">
+        <div class="max-w-2xl mx-auto">
+            <h3 class="text-3xl font-bold text-white mb-6">جاهز لبدء رحلة النجاح الرقمي؟</h3>
+            <p class="text-gray-400 mb-8 leading-relaxed">
+                في <strong>كليك مارت</strong>، نحن لا نبيع مجرد أكواد أو تصميمات، بل نضع بين يديك أدوات نمو حقيقية لمشروعك. 
+                انضم إلى قائمة عملائنا المميزين اليوم، ودعنا نحول رؤيتك إلى واقع يسبق منافسيك بمراحل. 
+                استثمر في جودة تستحقها، واحصل على خدمة تضعك في القمة.
+            </p>
+            <a href="https://wa.me/970599608181" class="inline-block bg-white text-black px-10 py-3 rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all">
+                ابدأ مشروعك الآن
+            </a>
+            <div class="mt-12 text-gray-600 text-sm">
+                جميع الحقوق محفوظة © 2026 ClickMart | فريقك التقني الموثوق
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
     <div id="modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
         <div class="bg-[#111] p-8 rounded-3xl max-w-sm w-full border border-orange-500 shadow-2xl">
             <h2 id="modalTitle" class="text-2xl font-bold mb-4 text-orange-500">طلب خدمة</h2>
@@ -99,10 +124,6 @@
             <button type="button" onclick="closeModal()" class="w-full mt-4 text-gray-500 text-sm hover:text-white">إغلاق</button>
         </div>
     </div>
-
-    <footer class="text-center py-10 text-gray-600 text-sm">
-        جميع الحقوق محفوظة © 2026 ClickMart | تواصل معنا: +970599608181
-    </footer>
 
     <script>
         function openModal(s) {
