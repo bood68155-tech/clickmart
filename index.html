@@ -137,9 +137,12 @@
         }
         function closeModal() { document.getElementById('modal').classList.add('hidden'); }
         function toggleOptions() { document.getElementById('optionsMenu').classList.toggle('hidden'); }
+        
         function startProject(type) {
-            const message = 'مرحباً، أريد البدء بمشروع ' + type + '. أحتاج تفاصيل أكثر ونريد أن نكون معاً للنهاية!';
-            window.open('https://wa.me/970599608181?text=' + encodeURIComponent(message), '_blank');
+            document.getElementById('modalTitle').innerText = 'خطوة أخيرة: ' + type;
+            document.getElementById('modalMessage').innerHTML = 'شكراً لاختيارك <strong>' + type + '</strong>.<br><br>نحن متحمسون للعمل معك! اضغط على الزر أدناه للتواصل معنا عبر واتساب وتزويدنا بتفاصيل مشروعك لضمان نجاحه.';
+            document.getElementById('waButton').href = 'https://wa.me/970599608181?text=مرحباً، أريد البدء بمشروع ' + type + '. أحتاج تفاصيل أكثر ونريد أن نكون معاً للنهاية!';
+            document.getElementById('modal').classList.remove('hidden');
             toggleOptions();
         }
     </script>
