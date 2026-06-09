@@ -2,6 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كليك مارت (ClickMart) | خدمات تصميم المواقع</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
@@ -13,8 +15,8 @@
 </head>
 <body>
 
-    <header class="py-16 text-center">
-        <h1 class="text-6xl font-black mb-4 gradient-text">كليك مارت (ClickMart)</h1>
+    <header class="py-16 text-center px-6">
+        <h1 class="text-5xl md:text-6xl font-black mb-4 gradient-text">كليك مارت (ClickMart)</h1>
         <p class="text-gray-400 text-lg">شريكك الرقمي لبناء مستقبل مشروعك، نحول أفكارك إلى واقع ملموس.</p>
     </header>
 
@@ -24,7 +26,7 @@
             <div class="card-hover bg-[#111] p-8 rounded-3xl border border-gray-800">
                 <h3 class="text-2xl font-bold mb-4">صفحة هبوط</h3>
                 <div class="text-5xl font-black text-orange-500 mb-6">$50</div>
-                <ul class="space-y-4 text-gray-400 mb-8">
+                <ul class="space-y-4 text-gray-400 mb-8 text-sm">
                     <li>✓ تصميم عصري متجاوب</li>
                     <li>✓ سرعة تحميل فائقة</li>
                     <li>✓ تهيئة لمحركات البحث</li>
@@ -32,11 +34,11 @@
                 <button onclick="openModal('صفحة هبوط')" class="w-full bg-orange-600 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 transition">طلب الخدمة</button>
             </div>
 
-            <div class="card-hover bg-orange-600 p-8 rounded-3xl border border-orange-500 shadow-2xl">
+            <div class="card-hover bg-orange-600 p-8 rounded-3xl border border-orange-500 shadow-2xl shadow-orange-500/20">
                 <span class="bg-black text-orange-500 px-3 py-1 rounded-full text-xs font-bold uppercase">الأكثر طلباً</span>
                 <h3 class="text-2xl font-bold mt-4 mb-4">متجر إلكتروني</h3>
-                <div class="text-5xl font-black mb-6">$200</div>
-                <ul class="space-y-4 text-black font-semibold mb-8">
+                <div class="text-5xl font-black mb-6 text-white">$200</div>
+                <ul class="space-y-4 text-black font-semibold mb-8 text-sm">
                     <li>✓ واجهة متجر متكاملة</li>
                     <li>✓ ربط Jawwal Pay & WhatsApp</li>
                     <li>✓ لوحة تحكم سهلة للإدارة</li>
@@ -47,7 +49,7 @@
             <div class="card-hover bg-[#111] p-8 rounded-3xl border border-gray-800">
                 <h3 class="text-2xl font-bold mb-4">برمجة خاصة</h3>
                 <div class="text-5xl font-black text-orange-500 mb-6">$300+</div>
-                <ul class="space-y-4 text-gray-400 mb-8">
+                <ul class="space-y-4 text-gray-400 mb-8 text-sm">
                     <li>✓ حلول برمجية مخصصة</li>
                     <li>✓ تطوير حسب الطلب</li>
                     <li>✓ دعم فني شامل</li>
@@ -79,7 +81,7 @@
 
             <div class="bg-[#111] p-8 rounded-3xl border border-gray-800">
                 <h4 class="font-bold text-xl mb-6">آلية العمل معنا:</h4>
-                <ol class="text-gray-400 space-y-4 list-decimal list-inside font-medium">
+                <ol class="text-gray-400 space-y-4 list-decimal list-inside font-medium text-sm">
                     <li>تواصل معنا عبر واتساب لاختيار الخدمة.</li>
                     <li>تحديد متطلبات مشروعك بدقة.</li>
                     <li>بدء التنفيذ والبرمجة الاحترافية.</li>
@@ -89,12 +91,27 @@
         </div>
     </section>
 
+    <div id="modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div class="bg-[#111] p-8 rounded-3xl max-w-sm w-full border border-orange-500 shadow-2xl">
+            <h2 id="modalTitle" class="text-2xl font-bold mb-4 text-orange-500">طلب خدمة</h2>
+            <p id="modalMessage" class="text-gray-300 mb-6"></p>
+            <a id="waButton" href="#" target="_blank" class="block w-full bg-orange-600 py-3 rounded-full font-bold text-center hover:bg-orange-500 transition">تواصل معنا عبر واتساب</a>
+            <button type="button" onclick="closeModal()" class="w-full mt-4 text-gray-500 text-sm hover:text-white">إغلاق</button>
+        </div>
+    </div>
+
     <footer class="text-center py-10 text-gray-600 text-sm">
         جميع الحقوق محفوظة © 2026 ClickMart | تواصل معنا: +970599608181
     </footer>
 
     <script>
-        function openModal(s) { window.open('https://wa.me/970599608181?text=مرحبا، أريد طلب خدمة ' + s, '_blank'); }
+        function openModal(s) {
+            document.getElementById('modalTitle').innerText = 'تم اختيار: ' + s;
+            document.getElementById('modalMessage').innerHTML = 'شكراً لثقتك بـ <strong>كليك مارت</strong>.<br><br>يرجى التواصل معنا عبر واتساب الآن لتزويدنا بتفاصيل مشروعك وبدء العمل فوراً!';
+            document.getElementById('waButton').href = 'https://wa.me/970599608181?text=مرحباً، أريد طلب خدمة ' + s + '. هذه تفاصيل مشروعي:';
+            document.getElementById('modal').classList.remove('hidden');
+        }
+        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
     </script>
 </body>
 </html>
