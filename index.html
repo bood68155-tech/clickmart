@@ -4,58 +4,64 @@
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* إضافة خلفية نجوم وتدرج فضائي */
-        body {
-            background: radial-gradient(circle at center, #1e1b4b 0%, #0f172a 50%, #020617 100%);
-            min-height: 100vh;
-        }
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+        body { background: radial-gradient(circle at top, #1a1510 0%, #020617 100%); min-height: 100vh; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(251, 146, 60, 0.2); }
     </style>
 </head>
-<body class="text-white p-6">
+<body class="text-white p-6 font-sans">
 
     <div class="max-w-6xl mx-auto">
-        <h1 class="text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">متجر كليك مارت (ClickMart)</h1>
+        <h1 class="text-5xl font-bold mb-16 text-center text-orange-500">كليك مارت (ClickMart)</h1>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- بطاقات المنتجات بستايل فضائي -->
-            <div class="glass p-6 rounded-3xl hover:scale-105 transition duration-500">
-                <h2 class="text-2xl font-bold mb-2">متجر إلكتروني</h2>
-                <p class="text-purple-300 text-3xl font-bold mb-4">$200</p>
-                <button onclick="openModal('متجر إلكتروني')" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 py-3 rounded-full font-bold shadow-lg shadow-blue-500/20">طلب الخدمة</button>
-            </div>
             
-            <div class="glass p-6 rounded-3xl hover:scale-105 transition duration-500">
-                <h2 class="text-2xl font-bold mb-2">صفحة هبوط</h2>
-                <p class="text-purple-300 text-3xl font-bold mb-4">$50</p>
-                <button onclick="openModal('صفحة هبوط')" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 py-3 rounded-full font-bold shadow-lg shadow-blue-500/20">طلب الخدمة</button>
+            <!-- بطاقة 1 -->
+            <div class="glass p-8 rounded-3xl hover:border-orange-500 transition-all">
+                <h2 class="text-2xl font-bold mb-2">متجر إلكتروني</h2>
+                <p class="text-orange-400 text-3xl font-bold mb-6">$200</p>
+                <ul class="text-gray-400 mb-8 space-y-2 text-sm">
+                    <li>✓ تصميم واجهة متجاوبة</li>
+                    <li>✓ ربط بوابات دفع محلية</li>
+                    <li>✓ لوحة تحكم سهلة</li>
+                </ul>
+                <button onclick="openModal('متجر إلكتروني')" class="w-full bg-orange-600 hover:bg-orange-500 py-3 rounded-full font-bold shadow-lg shadow-orange-500/20">اطلب الآن</button>
             </div>
 
-            <div class="glass p-6 rounded-3xl hover:scale-105 transition duration-500">
-                <h2 class="text-2xl font-bold mb-2">برمجة خاصة</h2>
-                <p class="text-purple-300 text-3xl font-bold mb-4">$300+</p>
-                <button onclick="openModal('برمجة خاصة')" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 py-3 rounded-full font-bold shadow-lg shadow-blue-500/20">طلب الخدمة</button>
+            <!-- بطاقة 2 -->
+            <div class="glass p-8 rounded-3xl border-orange-500 shadow-[0_0_20px_rgba(249,115,22,0.1)]">
+                <h2 class="text-2xl font-bold mb-2">صفحة هبوط</h2>
+                <p class="text-orange-400 text-3xl font-bold mb-6">$50</p>
+                <ul class="text-gray-400 mb-8 space-y-2 text-sm">
+                    <li>✓ صفحة احترافية واحدة</li>
+                    <li>✓ سرعة تحميل فائقة</li>
+                    <li>✓ تهيئة لمحركات البحث</li>
+                </ul>
+                <button onclick="openModal('صفحة هبوط')" class="w-full bg-orange-600 hover:bg-orange-500 py-3 rounded-full font-bold shadow-lg shadow-orange-500/20">اطلب الآن</button>
             </div>
+
+            <!-- بطاقة 3 -->
+            <div class="glass p-8 rounded-3xl hover:border-orange-500 transition-all">
+                <h2 class="text-2xl font-bold mb-2">برمجة خاصة</h2>
+                <p class="text-orange-400 text-3xl font-bold mb-6">$300+</p>
+                <ul class="text-gray-400 mb-8 space-y-2 text-sm">
+                    <li>✓ حلول برمجية مخصصة</li>
+                    <li>✓ دعم فني متكامل</li>
+                    <li>✓ تطوير حسب الطلب</li>
+                </ul>
+                <button onclick="openModal('برمجة خاصة')" class="w-full bg-orange-600 hover:bg-orange-500 py-3 rounded-full font-bold shadow-lg shadow-orange-500/20">اطلب الآن</button>
+            </div>
+
         </div>
     </div>
 
-    <!-- النافذة التفاعلية بستايل زجاجي -->
-    <div id="modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="glass p-8 rounded-3xl max-w-md w-full border-blue-500/30">
-            <h2 id="modalTitle" class="text-2xl font-bold mb-4">طلب خدمة</h2>
+    <!-- نافذة الطلب -->
+    <div id="modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass p-8 rounded-3xl max-w-sm w-full border-orange-500/30">
+            <h2 id="modalTitle" class="text-2xl font-bold mb-6">طلب خدمة</h2>
             <form action="https://wa.me/970599608181" method="GET" target="_blank">
                 <input type="hidden" name="text" id="waMessage">
-                <select name="details" class="w-full p-3 bg-black/40 border border-white/10 rounded-xl mb-4 text-white">
-                    <option>تصميم أساسي</option>
-                    <option>تصميم + دومين</option>
-                    <option>باقة متكاملة</option>
-                </select>
-                <button type="submit" class="w-full bg-blue-600 py-3 rounded-full font-bold shadow-lg shadow-blue-500/40">إرسال عبر واتساب</button>
-                <button type="button" onclick="closeModal()" class="w-full mt-4 text-gray-400">إغلاق</button>
+                <button type="submit" class="w-full bg-orange-600 py-3 rounded-full font-bold">تأكيد عبر واتساب</button>
+                <button type="button" onclick="closeModal()" class="w-full mt-4 text-gray-400 text-sm">إلغاء</button>
             </form>
         </div>
     </div>
@@ -64,7 +70,7 @@
         function openModal(service) {
             document.getElementById('modal').classList.remove('hidden');
             document.getElementById('modalTitle').innerText = 'طلب: ' + service;
-            document.getElementById('waMessage').value = 'أريد طلب خدمة ' + service;
+            document.getElementById('waMessage').value = 'مرحباً، أريد طلب خدمة ' + service + '. هل يمكننا البدء؟';
         }
         function closeModal() { document.getElementById('modal').classList.add('hidden'); }
     </script>
