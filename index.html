@@ -59,7 +59,7 @@
     <footer class="mt-20 py-16 border-t border-white/10 bg-black/40 text-center px-6 relative z-10">
         <div class="max-w-2xl mx-auto">
             <h3 id="footerTitle" class="text-3xl font-bold text-white mb-6">جاهز لبدء رحلة النجاح الرقمي؟</h3>
-            <p id="footerDesc" class="text-gray-400 mb-8 leading-relaxed">في كليك مارت، نحن لا نبيع مجرد أكواد، بل نضع بين يديك أدوات نمو حقيقية. انضم لقائمة عملائنا ودعنا نحول رؤيتك لواقع يسبق منافسيك.</p>
+            <p id="footerDesc" class="text-gray-400 mb-8 leading-relaxed">في كليك مارت، نحن لا نبيع مجرد أكواد، بل نضع بين يديك أدوات نمو حقيقية.</p>
             <div class="relative inline-block">
                 <button id="startBtn" onclick="toggleOptions()" class="bg-white text-black px-10 py-3 rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all">ابدأ مشروعك الآن</button>
                 <div id="optionsMenu" class="hidden absolute bottom-full mb-4 w-64 bg-[#111] border border-gray-700 rounded-2xl shadow-xl p-2 z-10">
@@ -70,6 +70,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal Window -->
+    <div id="modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div class="card-hover p-8 rounded-3xl max-w-sm w-full border border-orange-500 shadow-2xl">
+            <h2 id="modalTitle" class="text-2xl font-bold mb-4 text-orange-500">طلب خدمة</h2>
+            <p id="modalMessage" class="text-gray-300 mb-6">شكراً لثقتك بـ كليك مارت. تواصل معنا عبر واتساب الآن لتزويدنا بتفاصيل مشروعك وبدء العمل!</p>
+            <a id="waButton" href="#" target="_blank" class="block w-full bg-orange-600 py-3 rounded-full font-bold text-center hover:bg-orange-500 transition">تواصل عبر واتساب</a>
+            <button type="button" onclick="closeModal()" class="w-full mt-4 text-gray-500 text-sm hover:text-white">إغلاق</button>
+        </div>
+    </div>
 
     <script>
         const langData = {
@@ -97,9 +107,17 @@
             document.getElementById('startBtn').innerText = langData[currentLang].start;
             document.querySelectorAll('.order-btn').forEach(btn => btn.innerText = langData[currentLang].btn);
         }
-        function openModal(s) { alert('سنتواصل معك عبر واتساب لتكملة التفاصيل!'); window.open('https://wa.me/970599608181?text=مرحباً، أريد طلب ' + s); }
+        function openModal(s) { 
+            document.getElementById('waButton').href = 'https://wa.me/970599608181?text=مرحباً، أريد طلب ' + s;
+            document.getElementById('modal').classList.remove('hidden'); 
+        }
+        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
         function toggleOptions() { document.getElementById('optionsMenu').classList.toggle('hidden'); }
-        function startProject(type) { alert('جاري توجيهك للواتساب..'); window.open('https://wa.me/970599608181?text=مرحباً، أريد البدء بمشروع ' + type); toggleOptions(); }
+        function startProject(type) {
+            document.getElementById('waButton').href = 'https://wa.me/970599608181?text=مرحباً، أريد البدء بمشروع ' + type;
+            document.getElementById('modal').classList.remove('hidden');
+            toggleOptions();
+        }
     </script>
 </body>
 </html>
