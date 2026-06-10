@@ -73,8 +73,8 @@
 
     <script>
         const langData = {
-            'ar': { title: 'كليك مارت (ClickMart)', desc: 'شريكك الرقمي لبناء مستقبل مشروعك، نحول أفكارك إلى واقع ملموس.', btn: 'طلب الخدمة', card1: 'صفحة هبوط', card2: 'متجر إلكتروني', card3: 'موقع شخصي', why: 'لماذا كليك مارت؟', speed: 'سرعة التنفيذ', speedD: 'نلتزم بتسليم مشاريعك في أسرع وقت.', support: 'دعم فني مستمر', supportD: 'نحن معك حتى بعد تسليم المشروع.', process: 'آلية العمل معنا:', footer: 'جاهز لبدء رحلة النجاح الرقمي؟', footerD: 'في كليك مارت، نحن لا نبيع مجرد أكواد، بل نضع بين يديك أدوات نمو حقيقية. انضم لقائمة عملائنا ودعنا نحول رؤيتك لواقع يسبق منافسيك.', start: 'ابدأ مشروعك الآن' },
-            'en': { title: 'ClickMart', desc: 'Your digital partner to build your project future, turning ideas into reality.', btn: 'Order Service', card1: 'Landing Page', card2: 'E-commerce Store', card3: 'Personal Site', why: 'Why ClickMart?', speed: 'Fast Execution', speedD: 'We commit to delivering your projects quickly.', support: 'Continuous Support', supportD: 'We stay with you even after project delivery.', process: 'How we work:', footer: 'Ready to start your digital success?', footerD: 'At ClickMart, we don\'t just sell code, we provide growth tools. Join our clients and let us turn your vision into reality.', start: 'Start Your Project' }
+            'ar': { title: 'كليك مارت (ClickMart)', desc: 'شريكك الرقمي لبناء مستقبل مشروعك، نحول أفكارك إلى واقع ملموس.', btn: 'طلب الخدمة', card1: 'صفحة هبوط', card2: 'متجر إلكتروني', card3: 'موقع شخصي', why: 'لماذا كليك مارت؟', speed: 'سرعة التنفيذ', speedD: 'نلتزم بتسليم مشاريعك في أسرع وقت.', support: 'دعم فني مستمر', supportD: 'نحن معك حتى بعد تسليم المشروع.', process: 'آلية العمل معنا:', processList: '<li>تواصل معنا عبر واتساب.</li><li>تحديد متطلبات مشروعك.</li><li>بدء التنفيذ والبرمجة.</li><li>تسليم المشروع مع الشرح.</li>', footer: 'جاهز لبدء رحلة النجاح الرقمي؟', footerD: 'في كليك مارت، نحن لا نبيع مجرد أكواد، بل نضع بين يديك أدوات نمو حقيقية.', start: 'ابدأ مشروعك الآن' },
+            'en': { title: 'ClickMart', desc: 'Your digital partner to build your project future.', btn: 'Order Service', card1: 'Landing Page', card2: 'E-commerce Store', card3: 'Personal Site', why: 'Why ClickMart?', speed: 'Fast Execution', speedD: 'We deliver your projects on time.', support: 'Continuous Support', supportD: 'We stay with you even after delivery.', process: 'How we work:', processList: '<li>Contact us via WhatsApp.</li><li>Define project requirements.</li><li>Development & coding.</li><li>Delivery & training.</li>', footer: 'Ready to start your digital success?', footerD: 'At ClickMart, we don\'t just sell code, we provide real growth tools.', start: 'Start Your Project' }
         };
         let currentLang = 'ar';
         function toggleLang() {
@@ -91,6 +91,7 @@
             document.getElementById('supportTitle').innerText = langData[currentLang].support;
             document.getElementById('supportDesc').innerText = langData[currentLang].supportD;
             document.getElementById('processTitle').innerText = langData[currentLang].process;
+            document.getElementById('processList').innerHTML = langData[currentLang].processList;
             document.getElementById('footerTitle').innerText = langData[currentLang].footer;
             document.getElementById('footerDesc').innerText = langData[currentLang].footerD;
             document.getElementById('startBtn').innerText = langData[currentLang].start;
