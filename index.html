@@ -46,9 +46,10 @@
     <!-- Pricing Cards Section -->
     <section class="max-w-7xl mx-auto px-6 mb-20 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1: Page -->
             <div class="card-hover p-8 rounded-3xl">
                 <h3 class="text-2xl font-bold mb-4">صفحة هبوط</h3>
-                <div class="text-5xl font-black text-orange-500 mb-6">$50</div>
+                <div class="text-5xl font-black text-orange-500 mb-6">$20</div>
                 <ul class="space-y-4 text-gray-300 mb-8 text-sm">
                     <li>✓ تصميم عصري متجاوب</li>
                     <li>✓ سرعة تحميل فائقة</li>
@@ -57,10 +58,11 @@
                 <button onclick="openModal('صفحة هبوط')" class="w-full bg-orange-600 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 transition">طلب الخدمة</button>
             </div>
 
+            <!-- Card 2: Store -->
             <div class="card-hover p-8 rounded-3xl border-orange-500 shadow-2xl shadow-orange-500/10">
                 <span class="bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase">الأكثر طلباً</span>
                 <h3 class="text-2xl font-bold mt-4 mb-4">متجر إلكتروني</h3>
-                <div class="text-5xl font-black mb-6 text-white">$200</div>
+                <div class="text-5xl font-black mb-6 text-white">$100</div>
                 <ul class="space-y-4 text-gray-300 font-semibold mb-8 text-sm">
                     <li>✓ واجهة متجر متكاملة</li>
                     <li>✓ ربط Jawwal Pay & WhatsApp</li>
@@ -69,20 +71,21 @@
                 <button onclick="openModal('متجر إلكتروني')" class="w-full bg-white text-black py-4 rounded-xl font-bold text-lg hover:bg-orange-500 hover:text-white transition">طلب الخدمة</button>
             </div>
 
+            <!-- Card 3: Personal Site -->
             <div class="card-hover p-8 rounded-3xl">
-                <h3 class="text-2xl font-bold mb-4">برمجة خاصة</h3>
-                <div class="text-5xl font-black text-orange-500 mb-6">$300+</div>
+                <h3 class="text-2xl font-bold mb-4">موقع شخصي</h3>
+                <div class="text-5xl font-black text-orange-500 mb-6">$50</div>
                 <ul class="space-y-4 text-gray-300 mb-8 text-sm">
-                    <li>✓ حلول برمجية مخصصة</li>
-                    <li>✓ تطوير حسب الطلب</li>
-                    <li>✓ دعم فني شامل</li>
+                    <li>✓ تصميم احترافي خاص</li>
+                    <li>✓ معرض أعمال متكامل</li>
+                    <li>✓ دعم فني سريع</li>
                 </ul>
-                <button onclick="openModal('برمجة خاصة')" class="w-full bg-orange-600 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 transition">طلب الخدمة</button>
+                <button onclick="openModal('موقع شخصي')" class="w-full bg-orange-600 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 transition">طلب الخدمة</button>
             </div>
         </div>
     </section>
 
-    <!-- Why Us & Process Section -->
+    <!-- Why Us Section (as before) -->
     <section class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10 relative z-10">
         <h2 class="text-3xl font-bold text-center mb-12">لماذا كليك مارت؟</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -114,28 +117,19 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer class="mt-20 py-16 border-t border-white/10 bg-black/40 text-center px-6 relative z-10">
         <div class="max-w-2xl mx-auto">
             <h3 class="text-3xl font-bold text-white mb-6">جاهز لبدء رحلة النجاح الرقمي؟</h3>
-            <p class="text-gray-400 mb-8 leading-relaxed">
-                في <strong>كليك مارت</strong>، نحن لا نبيع مجرد أكواد أو تصميمات، بل نضع بين يديك أدوات نمو حقيقية لمشروعك. 
-                انضم إلى قائمة عملائنا المميزين اليوم، ودعنا نحول رؤيتك إلى واقع يسبق منافسيك بمراحل. 
-            </p>
+            <p class="text-gray-400 mb-8 leading-relaxed">في <strong>كليك مارت</strong>، نضع بين يديك أدوات نمو حقيقية لمشروعك. انضم إلى عملائنا المميزين اليوم!</p>
             
             <div class="relative inline-block">
-                <button onclick="toggleOptions()" class="bg-white text-black px-10 py-3 rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all">
-                    ابدأ مشروعك الآن
-                </button>
+                <button onclick="toggleOptions()" class="bg-white text-black px-10 py-3 rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all">ابدأ مشروعك الآن</button>
                 <div id="optionsMenu" class="hidden absolute bottom-full mb-4 w-64 bg-[#111] border border-gray-700 rounded-2xl shadow-xl p-2 z-10">
                     <button onclick="startProject('متجر إلكتروني')" class="block w-full text-right p-3 hover:bg-orange-600 rounded-lg transition">🚀 إنشاء متجر إلكتروني</button>
                     <button onclick="startProject('تصميم موقع')" class="block w-full text-right p-3 hover:bg-orange-600 rounded-lg transition">💻 تصميم موقع تعريفي</button>
-                    <button onclick="startProject('برمجة خاصة')" class="block w-full text-right p-3 hover:bg-orange-600 rounded-lg transition">⚙️ برمجة تطبيق خاص</button>
+                    <button onclick="startProject('موقع شخصي')" class="block w-full text-right p-3 hover:bg-orange-600 rounded-lg transition">👤 إنشاء موقع شخصي</button>
                 </div>
-            </div>
-
-            <div class="mt-12 text-gray-600 text-sm">
-                جميع الحقوق محفوظة © 2026 ClickMart | فريقك التقني الموثوق
             </div>
         </div>
     </footer>
@@ -159,7 +153,6 @@
         }
         function closeModal() { document.getElementById('modal').classList.add('hidden'); }
         function toggleOptions() { document.getElementById('optionsMenu').classList.toggle('hidden'); }
-        
         function startProject(type) {
             document.getElementById('modalTitle').innerText = 'خطوة أخيرة: ' + type;
             document.getElementById('modalMessage').innerHTML = 'شكراً لاختيارك <strong>' + type + '</strong>.<br><br>نحن متحمسون للعمل معك! اضغط على الزر أدناه للتواصل معنا عبر واتساب وتزويدنا بتفاصيل مشروعك لضمان نجاحه.';
