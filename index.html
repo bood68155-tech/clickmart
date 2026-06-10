@@ -7,24 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
-        body { 
-            font-family: 'Cairo', sans-serif; 
-            background: radial-gradient(circle at center, #1e1b4b 0%, #0a0a0a 70%, #000000 100%);
-            color: white; 
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                              radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
-            background-size: 550px 550px, 350px 350px;
-            opacity: 0.3;
-            pointer-events: none;
-        }
+        body { font-family: 'Cairo', sans-serif; background: radial-gradient(circle at center, #1e1b4b 0%, #0a0a0a 70%, #000000 100%); color: white; min-height: 100vh; position: relative; overflow-x: hidden; }
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px), radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px); background-size: 550px 550px, 350px 350px; opacity: 0.3; pointer-events: none; }
         .gradient-text { background: linear-gradient(to right, #f97316, #fb923c); -webkit-background-clip: text; color: transparent; }
         .card-hover { transition: transform 0.3s ease; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
         .card-hover:hover { transform: translateY(-10px); border-color: #f97316; }
@@ -32,11 +16,8 @@
 </head>
 <body>
 
-    <!-- Language Switcher -->
     <div class="text-center pt-6 relative z-20">
-        <button onclick="toggleLang()" class="bg-gray-800 text-white px-4 py-1 rounded-full text-xs hover:bg-orange-600 transition">
-            Switch to English / تغيير للعربية
-        </button>
+        <button onclick="toggleLang()" class="bg-gray-800 text-white px-4 py-1 rounded-full text-xs hover:bg-orange-600 transition">Switch Language / تغيير اللغة</button>
     </div>
 
     <header class="py-12 text-center px-6 relative z-10">
@@ -47,26 +28,38 @@
     <section class="max-w-7xl mx-auto px-6 mb-20 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="card-hover p-8 rounded-3xl">
-                <h3 class="text-2xl font-bold mb-4">صفحة هبوط</h3>
+                <h3 class="card1Title text-2xl font-bold mb-4">صفحة هبوط</h3>
                 <div class="text-5xl font-black text-orange-500 mb-6">$20</div>
                 <button onclick="openModal('صفحة هبوط')" class="order-btn w-full bg-orange-600 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 transition">طلب الخدمة</button>
             </div>
             <div class="card-hover p-8 rounded-3xl border-orange-500 shadow-2xl shadow-orange-500/10">
-                <h3 class="text-2xl font-bold mt-4 mb-4">متجر إلكتروني</h3>
+                <h3 class="card2Title text-2xl font-bold mt-4 mb-4">متجر إلكتروني</h3>
                 <div class="text-5xl font-black mb-6 text-white">$100</div>
                 <button onclick="openModal('متجر إلكتروني')" class="order-btn w-full bg-white text-black py-4 rounded-xl font-bold text-lg hover:bg-orange-500 hover:text-white transition">طلب الخدمة</button>
             </div>
             <div class="card-hover p-8 rounded-3xl">
-                <h3 class="text-2xl font-bold mb-4">موقع شخصي</h3>
+                <h3 class="card3Title text-2xl font-bold mb-4">موقع شخصي</h3>
                 <div class="text-5xl font-black text-orange-500 mb-6">$50</div>
                 <button onclick="openModal('موقع شخصي')" class="order-btn w-full bg-orange-600 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 transition">طلب الخدمة</button>
             </div>
         </div>
     </section>
 
+    <section class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10 relative z-10">
+        <h2 id="whyUsTitle" class="text-3xl font-bold text-center mb-12">لماذا كليك مارت؟</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="space-y-8">
+                <div class="flex gap-4"><span class="text-orange-500 text-3xl">⚡</span><div><h4 id="speedTitle" class="font-bold text-xl">سرعة التنفيذ</h4><p id="speedDesc" class="text-gray-400">نلتزم بتسليم مشاريعك في أسرع وقت مع الحفاظ على أعلى معايير الجودة.</p></div></div>
+                <div class="flex gap-4"><span class="text-orange-500 text-3xl">🛡️</span><div><h4 id="supportTitle" class="font-bold text-xl">دعم فني مستمر</h4><p id="supportDesc" class="text-gray-400">نحن معك حتى بعد تسليم المشروع لضمان عمل كل شيء بسلاسة تامة.</p></div></div>
+            </div>
+            <div class="card-hover p-8 rounded-3xl"><h4 id="processTitle" class="font-bold text-xl mb-6">آلية العمل معنا:</h4><ol id="processList" class="text-gray-300 space-y-4 list-decimal list-inside font-medium text-sm"><li>تواصل معنا عبر واتساب.</li><li>تحديد متطلبات مشروعك.</li><li>بدء التنفيذ والبرمجة.</li><li>تسليم المشروع مع الشرح.</li></ol></div>
+        </div>
+    </section>
+
     <footer class="mt-20 py-16 border-t border-white/10 bg-black/40 text-center px-6 relative z-10">
         <div class="max-w-2xl mx-auto">
             <h3 id="footerTitle" class="text-3xl font-bold text-white mb-6">جاهز لبدء رحلة النجاح الرقمي؟</h3>
+            <p id="footerDesc" class="text-gray-400 mb-8 leading-relaxed">في كليك مارت، نحن لا نبيع مجرد أكواد، بل نضع بين يديك أدوات نمو حقيقية. انضم لقائمة عملائنا ودعنا نحول رؤيتك لواقع يسبق منافسيك.</p>
             <div class="relative inline-block">
                 <button id="startBtn" onclick="toggleOptions()" class="bg-white text-black px-10 py-3 rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all">ابدأ مشروعك الآن</button>
                 <div id="optionsMenu" class="hidden absolute bottom-full mb-4 w-64 bg-[#111] border border-gray-700 rounded-2xl shadow-xl p-2 z-10">
@@ -78,19 +71,10 @@
         </div>
     </footer>
 
-    <div id="modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-        <div class="card-hover p-8 rounded-3xl max-w-sm w-full border border-orange-500 shadow-2xl">
-            <h2 id="modalTitle" class="text-2xl font-bold mb-4 text-orange-500">طلب خدمة</h2>
-            <p id="modalMessage" class="text-gray-300 mb-6"></p>
-            <a id="waButton" href="#" target="_blank" class="block w-full bg-orange-600 py-3 rounded-full font-bold text-center hover:bg-orange-500 transition">تواصل عبر واتساب</a>
-            <button type="button" onclick="closeModal()" class="w-full mt-4 text-gray-500 text-sm hover:text-white">إغلاق</button>
-        </div>
-    </div>
-
     <script>
         const langData = {
-            'ar': { title: 'كليك مارت (ClickMart)', desc: 'شريكك الرقمي لبناء مستقبل مشروعك.', btn: 'طلب الخدمة', footer: 'جاهز لبدء رحلة النجاح الرقمي؟', start: 'ابدأ مشروعك الآن' },
-            'en': { title: 'ClickMart', desc: 'Your digital partner to build the future of your project.', btn: 'Order Service', footer: 'Ready to start your digital success journey?', start: 'Start Your Project' }
+            'ar': { title: 'كليك مارت (ClickMart)', desc: 'شريكك الرقمي لبناء مستقبل مشروعك، نحول أفكارك إلى واقع ملموس.', btn: 'طلب الخدمة', card1: 'صفحة هبوط', card2: 'متجر إلكتروني', card3: 'موقع شخصي', why: 'لماذا كليك مارت؟', speed: 'سرعة التنفيذ', speedD: 'نلتزم بتسليم مشاريعك في أسرع وقت.', support: 'دعم فني مستمر', supportD: 'نحن معك حتى بعد تسليم المشروع.', process: 'آلية العمل معنا:', footer: 'جاهز لبدء رحلة النجاح الرقمي؟', footerD: 'في كليك مارت، نحن لا نبيع مجرد أكواد، بل نضع بين يديك أدوات نمو حقيقية. انضم لقائمة عملائنا ودعنا نحول رؤيتك لواقع يسبق منافسيك.', start: 'ابدأ مشروعك الآن' },
+            'en': { title: 'ClickMart', desc: 'Your digital partner to build your project future, turning ideas into reality.', btn: 'Order Service', card1: 'Landing Page', card2: 'E-commerce Store', card3: 'Personal Site', why: 'Why ClickMart?', speed: 'Fast Execution', speedD: 'We commit to delivering your projects quickly.', support: 'Continuous Support', supportD: 'We stay with you even after project delivery.', process: 'How we work:', footer: 'Ready to start your digital success?', footerD: 'At ClickMart, we don\'t just sell code, we provide growth tools. Join our clients and let us turn your vision into reality.', start: 'Start Your Project' }
         };
         let currentLang = 'ar';
         function toggleLang() {
@@ -98,25 +82,23 @@
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.getElementById('mainTitle').innerText = langData[currentLang].title;
             document.getElementById('mainDesc').innerText = langData[currentLang].desc;
+            document.querySelector('.card1Title').innerText = langData[currentLang].card1;
+            document.querySelector('.card2Title').innerText = langData[currentLang].card2;
+            document.querySelector('.card3Title').innerText = langData[currentLang].card3;
+            document.getElementById('whyUsTitle').innerText = langData[currentLang].why;
+            document.getElementById('speedTitle').innerText = langData[currentLang].speed;
+            document.getElementById('speedDesc').innerText = langData[currentLang].speedD;
+            document.getElementById('supportTitle').innerText = langData[currentLang].support;
+            document.getElementById('supportDesc').innerText = langData[currentLang].supportD;
+            document.getElementById('processTitle').innerText = langData[currentLang].process;
             document.getElementById('footerTitle').innerText = langData[currentLang].footer;
+            document.getElementById('footerDesc').innerText = langData[currentLang].footerD;
             document.getElementById('startBtn').innerText = langData[currentLang].start;
             document.querySelectorAll('.order-btn').forEach(btn => btn.innerText = langData[currentLang].btn);
         }
-        function openModal(s) {
-            document.getElementById('modalTitle').innerText = (currentLang==='ar'?'تم اختيار: ':'Selected: ') + s;
-            document.getElementById('modalMessage').innerHTML = (currentLang==='ar'?'يرجى التواصل معنا عبر واتساب الآن لتزويدنا بتفاصيل مشروعك.':'Please contact us on WhatsApp now to provide your project details.');
-            document.getElementById('waButton').href = 'https://wa.me/970599608181?text=' + encodeURIComponent('مرحباً، أريد البدء بمشروع ' + s);
-            document.getElementById('modal').classList.remove('hidden');
-        }
-        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+        function openModal(s) { alert('سنتواصل معك عبر واتساب لتكملة التفاصيل!'); window.open('https://wa.me/970599608181?text=مرحباً، أريد طلب ' + s); }
         function toggleOptions() { document.getElementById('optionsMenu').classList.toggle('hidden'); }
-        function startProject(type) {
-            document.getElementById('waButton').href = 'https://wa.me/970599608181?text=' + encodeURIComponent('مرحباً، أريد البدء بمشروع ' + type);
-            document.getElementById('modalTitle').innerText = 'خطوة أخيرة';
-            document.getElementById('modalMessage').innerText = 'نحن متحمسون للعمل معك! اضغط للتواصل وتزويدنا بالتفاصيل.';
-            document.getElementById('modal').classList.remove('hidden');
-            toggleOptions();
-        }
+        function startProject(type) { alert('جاري توجيهك للواتساب..'); window.open('https://wa.me/970599608181?text=مرحباً، أريد البدء بمشروع ' + type); toggleOptions(); }
     </script>
 </body>
 </html>
