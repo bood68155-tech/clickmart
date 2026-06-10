@@ -7,27 +7,49 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
-        body { font-family: 'Cairo', sans-serif; background: #0a0a0a; color: white; }
+        
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: radial-gradient(circle at center, #1e1b4b 0%, #0a0a0a 70%, #000000 100%);
+            color: white; 
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* تأثير النجوم */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                              radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+            background-size: 550px 550px, 350px 350px;
+            background-position: 0 0, 40px 60px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
         .gradient-text { background: linear-gradient(to right, #f97316, #fb923c); -webkit-background-clip: text; color: transparent; }
-        .card-hover { transition: transform 0.3s ease; }
-        .card-hover:hover { transform: translateY(-10px); }
+        .card-hover { transition: transform 0.3s ease; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .card-hover:hover { transform: translateY(-10px); border-color: #f97316; }
     </style>
 </head>
 <body>
 
     <!-- Header Section -->
-    <header class="py-16 text-center px-6">
+    <header class="py-16 text-center px-6 relative z-10">
         <h1 class="text-5xl md:text-6xl font-black mb-4 gradient-text">كليك مارت (ClickMart)</h1>
-        <p class="text-gray-400 text-lg">شريكك الرقمي لبناء مستقبل مشروعك، نحول أفكارك إلى واقع ملموس.</p>
+        <p class="text-gray-300 text-lg">شريكك الرقمي لبناء مستقبل مشروعك، نحول أفكارك إلى واقع ملموس.</p>
     </header>
 
     <!-- Pricing Cards Section -->
-    <section class="max-w-7xl mx-auto px-6 mb-20">
+    <section class="max-w-7xl mx-auto px-6 mb-20 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="card-hover bg-[#111] p-8 rounded-3xl border border-gray-800">
+            <div class="card-hover p-8 rounded-3xl">
                 <h3 class="text-2xl font-bold mb-4">صفحة هبوط</h3>
                 <div class="text-5xl font-black text-orange-500 mb-6">$50</div>
-                <ul class="space-y-4 text-gray-400 mb-8 text-sm">
+                <ul class="space-y-4 text-gray-300 mb-8 text-sm">
                     <li>✓ تصميم عصري متجاوب</li>
                     <li>✓ سرعة تحميل فائقة</li>
                     <li>✓ تهيئة لمحركات البحث</li>
@@ -35,22 +57,22 @@
                 <button onclick="openModal('صفحة هبوط')" class="w-full bg-orange-600 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 transition">طلب الخدمة</button>
             </div>
 
-            <div class="card-hover bg-orange-600 p-8 rounded-3xl border border-orange-500 shadow-2xl shadow-orange-500/20">
-                <span class="bg-black text-orange-500 px-3 py-1 rounded-full text-xs font-bold uppercase">الأكثر طلباً</span>
+            <div class="card-hover p-8 rounded-3xl border-orange-500 shadow-2xl shadow-orange-500/10">
+                <span class="bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase">الأكثر طلباً</span>
                 <h3 class="text-2xl font-bold mt-4 mb-4">متجر إلكتروني</h3>
                 <div class="text-5xl font-black mb-6 text-white">$200</div>
-                <ul class="space-y-4 text-black font-semibold mb-8 text-sm">
+                <ul class="space-y-4 text-gray-300 font-semibold mb-8 text-sm">
                     <li>✓ واجهة متجر متكاملة</li>
                     <li>✓ ربط Jawwal Pay & WhatsApp</li>
                     <li>✓ لوحة تحكم سهلة للإدارة</li>
                 </ul>
-                <button onclick="openModal('متجر إلكتروني')" class="w-full bg-black text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-900 transition">طلب الخدمة</button>
+                <button onclick="openModal('متجر إلكتروني')" class="w-full bg-white text-black py-4 rounded-xl font-bold text-lg hover:bg-orange-500 hover:text-white transition">طلب الخدمة</button>
             </div>
 
-            <div class="card-hover bg-[#111] p-8 rounded-3xl border border-gray-800">
+            <div class="card-hover p-8 rounded-3xl">
                 <h3 class="text-2xl font-bold mb-4">برمجة خاصة</h3>
                 <div class="text-5xl font-black text-orange-500 mb-6">$300+</div>
-                <ul class="space-y-4 text-gray-400 mb-8 text-sm">
+                <ul class="space-y-4 text-gray-300 mb-8 text-sm">
                     <li>✓ حلول برمجية مخصصة</li>
                     <li>✓ تطوير حسب الطلب</li>
                     <li>✓ دعم فني شامل</li>
@@ -61,7 +83,7 @@
     </section>
 
     <!-- Why Us & Process Section -->
-    <section class="max-w-7xl mx-auto px-6 py-12 border-t border-gray-900">
+    <section class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10 relative z-10">
         <h2 class="text-3xl font-bold text-center mb-12">لماذا كليك مارت؟</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div class="space-y-8">
@@ -80,9 +102,9 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-[#111] p-8 rounded-3xl border border-gray-800">
+            <div class="card-hover p-8 rounded-3xl">
                 <h4 class="font-bold text-xl mb-6">آلية العمل معنا:</h4>
-                <ol class="text-gray-400 space-y-4 list-decimal list-inside font-medium text-sm">
+                <ol class="text-gray-300 space-y-4 list-decimal list-inside font-medium text-sm">
                     <li>تواصل معنا عبر واتساب لاختيار الخدمة.</li>
                     <li>تحديد متطلبات مشروعك بدقة.</li>
                     <li>بدء التنفيذ والبرمجة الاحترافية.</li>
@@ -93,7 +115,7 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="mt-20 py-16 border-t border-gray-900 bg-[#0f0f0f] text-center px-6">
+    <footer class="mt-20 py-16 border-t border-white/10 bg-black/40 text-center px-6 relative z-10">
         <div class="max-w-2xl mx-auto">
             <h3 class="text-3xl font-bold text-white mb-6">جاهز لبدء رحلة النجاح الرقمي؟</h3>
             <p class="text-gray-400 mb-8 leading-relaxed">
@@ -120,7 +142,7 @@
 
     <!-- Modal -->
     <div id="modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-        <div class="bg-[#111] p-8 rounded-3xl max-w-sm w-full border border-orange-500 shadow-2xl">
+        <div class="card-hover p-8 rounded-3xl max-w-sm w-full border border-orange-500 shadow-2xl">
             <h2 id="modalTitle" class="text-2xl font-bold mb-4 text-orange-500">طلب خدمة</h2>
             <p id="modalMessage" class="text-gray-300 mb-6"></p>
             <a id="waButton" href="#" target="_blank" class="block w-full bg-orange-600 py-3 rounded-full font-bold text-center hover:bg-orange-500 transition">تواصل معنا عبر واتساب</a>
