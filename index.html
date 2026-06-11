@@ -45,7 +45,24 @@
         </div>
     </section>
 
-    <!-- Modal Window -->
+    <section class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10 relative z-10">
+        <h2 id="whyUsTitle" class="text-3xl font-bold text-center mb-12">لماذا كليك مارت؟</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="space-y-8">
+                <div class="flex gap-4"><span class="text-orange-500 text-3xl">⚡</span><div><h4 id="speedTitle" class="font-bold text-xl">سرعة التنفيذ</h4><p id="speedDesc" class="text-gray-400">نلتزم بتسليم مشاريعك في أسرع وقت مع الحفاظ على أعلى معايير الجودة.</p></div></div>
+                <div class="flex gap-4"><span class="text-orange-500 text-3xl">🛡️</span><div><h4 id="supportTitle" class="font-bold text-xl">دعم فني مستمر</h4><p id="supportDesc" class="text-gray-400">نحن معك حتى بعد تسليم المشروع لضمان عمل كل شيء بسلاسة تامة.</p></div></div>
+            </div>
+            <div class="card-hover p-8 rounded-3xl"><h4 id="processTitle" class="font-bold text-xl mb-6">آلية العمل معنا:</h4><ol id="processList" class="text-gray-300 space-y-4 list-decimal list-inside font-medium text-sm"><li>تواصل معنا عبر واتساب.</li><li>تحديد متطلبات مشروعك.</li><li>بدء التنفيذ والبرمجة.</li><li>تسليم المشروع مع الشرح.</li></ol></div>
+        </div>
+    </section>
+
+    <footer class="mt-20 py-16 border-t border-white/10 bg-black/40 text-center px-6 relative z-10">
+        <div class="max-w-2xl mx-auto">
+            <h3 id="footerTitle" class="text-3xl font-bold text-white mb-6">جاهز لبدء رحلة النجاح الرقمي؟</h3>
+            <p id="footerDesc" class="text-gray-400 mb-8 leading-relaxed">في كليك مارت، نحن لا نبيع مجرد أكواد، بل نضع بين يديك أدوات نمو حقيقية لمشروعك.</p>
+        </div>
+    </footer>
+
     <div id="modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
         <div class="card-hover p-8 rounded-3xl max-w-sm w-full border border-orange-500 shadow-2xl">
             <h2 id="modalTitle" class="text-2xl font-bold mb-4 text-orange-500">طلب خدمة</h2>
@@ -60,12 +77,14 @@
             'ar': { 
                 title: 'كليك مارت (ClickMart)', desc: 'شريكك الرقمي لبناء مستقبل مشروعك، نحول أفكارك إلى واقع ملموس.', btn: 'طلب الخدمة', 
                 card1: 'صفحة هبوط', card2: 'متجر إلكتروني', card3: 'موقع شخصي', 
+                why: 'لماذا كليك مارت؟', speed: 'سرعة التنفيذ', speedD: 'نلتزم بتسليم مشاريعك في أسرع وقت مع الحفاظ على أعلى معايير الجودة.', support: 'دعم فني مستمر', supportD: 'نحن معك حتى بعد تسليم المشروع لضمان عمل كل شيء بسلاسة تامة.', process: 'آلية العمل معنا:', processList: '<li>تواصل معنا عبر واتساب.</li><li>تحديد متطلبات مشروعك.</li><li>بدء التنفيذ والبرمجة.</li><li>تسليم المشروع مع الشرح.</li>', footer: 'جاهز لبدء رحلة النجاح الرقمي؟', footerD: 'في كليك مارت، نحن لا نبيع مجرد أكواد، بل نضع بين يديك أدوات نمو حقيقية لمشروعك.',
                 mTitle: 'طلب خدمة', mMsg: 'شكراً لثقتك بـ كليك مارت. تواصل معنا عبر واتساب الآن لتزويدنا بتفاصيل مشروعك وبدء العمل!', mBtn: 'تواصل عبر واتساب', mClose: 'إغلاق'
             },
             'en': { 
                 title: 'ClickMart', desc: 'Your digital partner to build your project future.', btn: 'Order Service', 
                 card1: 'Landing Page', card2: 'E-commerce Store', card3: 'Personal Site', 
-                mTitle: 'Request Service', mMsg: 'Thank you for trusting ClickMart. Contact us via WhatsApp now to provide your project details and get started!', mBtn: 'Contact via WhatsApp', mClose: 'Close'
+                why: 'Why ClickMart?', speed: 'Fast Execution', speedD: 'We deliver your projects on time with high quality standards.', support: 'Continuous Support', supportD: 'We stay with you even after delivery for a smooth experience.', process: 'How we work:', processList: '<li>Contact us via WhatsApp.</li><li>Define project requirements.</li><li>Development & coding.</li><li>Delivery & training.</li>', footer: 'Ready to start your digital success?', footerD: 'At ClickMart, we don\'t just sell code, we provide real growth tools for your project.',
+                mTitle: 'Request Service', mMsg: 'Thank you for trusting ClickMart. Contact us via WhatsApp now to provide your project details!', mBtn: 'Contact via WhatsApp', mClose: 'Close'
             }
         };
 
@@ -75,19 +94,30 @@
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             
-            // تحديث العناصر الرئيسية
+            // تحديث العناوين والنصوص
             document.getElementById('mainTitle').innerText = langData[currentLang].title;
             document.getElementById('mainDesc').innerText = langData[currentLang].desc;
             document.querySelector('.card1Title').innerText = langData[currentLang].card1;
             document.querySelector('.card2Title').innerText = langData[currentLang].card2;
             document.querySelector('.card3Title').innerText = langData[currentLang].card3;
-            document.querySelectorAll('.order-btn').forEach(btn => btn.innerText = langData[currentLang].btn);
+            document.getElementById('whyUsTitle').innerText = langData[currentLang].why;
+            document.getElementById('speedTitle').innerText = langData[currentLang].speed;
+            document.getElementById('speedDesc').innerText = langData[currentLang].speedD;
+            document.getElementById('supportTitle').innerText = langData[currentLang].support;
+            document.getElementById('supportDesc').innerText = langData[currentLang].supportD;
+            document.getElementById('processTitle').innerText = langData[currentLang].process;
+            document.getElementById('processList').innerHTML = langData[currentLang].processList;
+            document.getElementById('footerTitle').innerText = langData[currentLang].footer;
+            document.getElementById('footerDesc').innerText = langData[currentLang].footerD;
             
-            // تحديث نافذة المودال
+            // تحديث المودال
             document.getElementById('modalTitle').innerText = langData[currentLang].mTitle;
             document.getElementById('modalMessage').innerText = langData[currentLang].mMsg;
             document.getElementById('waButton').innerText = langData[currentLang].mBtn;
             document.getElementById('closeBtn').innerText = langData[currentLang].mClose;
+            
+            // تحديث الأزرار
+            document.querySelectorAll('.order-btn').forEach(btn => btn.innerText = langData[currentLang].btn);
         }
 
         function openModal(s) { 
